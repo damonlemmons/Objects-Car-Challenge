@@ -36,21 +36,68 @@ function carMaker(make, year, color) {  // begin createNewPerson
       return speed
     },
     accelerate: function() {
-      speed = speed + 10
+      speed = speed + 80
     },
     brake: function() {
       speed = speed - 7
-    }                              // end function
+    },
+                                  // end function
   };                              // end object
 }                                 // end createNewPerson
 
 var car1 = carMaker ("Ford", 2003, "white");
-console.log(car1.accelerate())
-console.log(car1.brake())
-console.log(car1.getSpeed())
-console.log(car1.accelerate())
-console.log(car1.brake())
-console.log(car1.getSpeed())
 
 
-carMaker ("Ford", 2003, "white")
+
+/* Story 3
+Create a car object and use a while loop to take its speed up to 50mph.
+
+Then use a while loop to brake down to 0mph.
+Surprise: it doesnt stop at 0mph, fix that.
+
+Challenges:
+
+Create a loop that accelerates the car up to 70mph.
+Create a loop that decelerates the car to 0pmh.
+Call break after the car is at 0mph.
+Fix the issue.
+Hint: The loops use a car object, but is not part of the car object. */
+
+
+
+function accelerates(car,speed) {
+  while (car.getSpeed() !== speed) {
+    car.accelerate()
+    var currentSpeed = car.getSpeed()
+    console.log(currentSpeed)
+    if (currentSpeed >= 80) {
+      currentSpeed = 85
+      console.log(currentSpeed)
+      break;
+    }
+  }
+}
+
+
+function decelerates(car,speed) {
+  while (car.getSpeed() > speed) {
+    car.brake()
+    var currentSpeed = car.getSpeed() 
+    if(currentSpeed < 1 ) {
+    currentSpeed = 0
+    }
+    console.log(currentSpeed)
+    
+    }
+}
+
+accelerates(car1,90)
+decelerates(car1, 0)
+
+
+
+
+
+
+
+
